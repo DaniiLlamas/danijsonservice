@@ -327,4 +327,9 @@ export class ServCatalogoService {
   getAll(){
     return this.catalogo;
   } 
+
+  public buscarPorId(id:number):any{
+    const resultado = this.catalogo.find((libro:any) => libro.id == id);
+     return resultado;
+   }
 }
