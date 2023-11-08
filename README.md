@@ -16,7 +16,8 @@ python3 getmetadata.py isbns.txt tittle.txt --apikey TUAPIKEY
 
 # Pregunta 8
 No he creado ningún componente, sin embargo ha sido por la falta de tiempo. Aunque tenga manejo con los componentes, los imports me siguen dando algún que otro fallo y no quería perder tiempo en ello, sino que quería priorizar tener más cosas hechas.
+
 Aun así, se podrían haber hecho varios componentes, como los ion-items para mostrar los detalles de los libros (que se usan tanto en catalogoPage como en MisPrestamosPage), por ejemplo.
 Creo que mi decisión ha sido la correcta para no perder tiempo en el examen y poder abarcarlo todo (tal y como he hecho)
 
-Que la fuerza te acompañe recogiendo (y con cariño, que es mi cumple el dia del examen)
+Que la fuerza te acompañe corrigiendo (y con cariño, que es mi cumple el dia del examen)
