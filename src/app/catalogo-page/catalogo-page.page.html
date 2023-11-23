@@ -1,6 +1,6 @@
 <ion-content [fullscreen]="true">
   <app-header></app-header>
-  <ion-list>
+  <ion-list *ngIf="catalogoLibros != undefined">
     <ion-item *ngFor="let libro of catalogoLibros" [routerLink]="['/libro-page',libro.id]">
       <img src="../../assets/covers/{{libro.isbn}}.jpg"/>
       <p> Titulo : {{libro.titulo}}  <br>

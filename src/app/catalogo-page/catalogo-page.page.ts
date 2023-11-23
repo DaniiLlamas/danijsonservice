@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServMisPrestamosService } from '../services/serv-mis-prestamos.service';
 import { ServCatalogoService } from '../services/serv-catalogo.service';
+import { ICatalogo } from '../interfaces/ICatalogo';
 
 @Component({
   selector: 'app-catalogo-page',
@@ -8,12 +9,17 @@ import { ServCatalogoService } from '../services/serv-catalogo.service';
   styleUrls: ['./catalogo-page.page.scss'],
 })
 export class CatalogoPagePage implements OnInit {
-  catalogoLibros:any
+  catalogoLibros!:ICatalogo[];
   constructor(servCatalogo : ServCatalogoService) {
-    this.catalogoLibros = servCatalogo.getAll()
+    servCatalogo.getAll().subscribe(
+      (resp) =>{
+        this.catalogoLibros =  resp;
+      }
+    )
    }
 
   ngOnInit() {
   }
 
+  
 }

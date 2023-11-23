@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServMisPrestamosService } from '../services/serv-mis-prestamos.service';
+import { ICatalogo } from '../interfaces/ICatalogo';
 
 @Component({
   selector: 'app-mis-prestamos-page',
@@ -7,18 +8,28 @@ import { ServMisPrestamosService } from '../services/serv-mis-prestamos.service'
   styleUrls: ['./mis-prestamos-page.page.scss'],
 })
 export class MisPrestamosPagePage implements OnInit {
-  catalogoPrestamos:any
-  idDevolver:any
-  libroDevolver:any
-  constructor(private servPrestamos : ServMisPrestamosService) {
-    this.catalogoPrestamos = servPrestamos.getAll()
-   }
+  catalogoPrestamos:ICatalogo[] | undefined
 
-  ngOnInit() {
+  constructor(private servPrestamos : ServMisPrestamosService) {
+    
+   }
+  ngOnInit(): void {
+    this.servPrestamos.getAll().subscribe(
+      (resp) => {
+        this.catalogoPrestamos = resp;
+      }
+    )
   }
 
-  borraPrestamo(id:any) {
+  
+
+  borraPrestamo(id:number) {
     this.servPrestamos.delete(id)
+    this.servPrestamos.getAll().subscribe(
+      (resp) => {
+        this.catalogoPrestamos = resp;
+      }
+    )
   }
 
 }
