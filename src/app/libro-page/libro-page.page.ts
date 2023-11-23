@@ -35,7 +35,9 @@ export class LibroPagePage implements OnInit {
   }
 
   guardaLibro(){
-    this.prestService.add(this.libroRecibido)
+    this.prestService.add(this.libroRecibido).subscribe(
+      s=>{}
+    )
     this.router.navigate(['mis-prestamos-page'])
   }
 

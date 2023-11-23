@@ -24,7 +24,11 @@ export class MisPrestamosPagePage implements OnInit {
   
 
   borraPrestamo(id:number) {
-    this.servPrestamos.delete(id)
+    this.servPrestamos.delete(id).subscribe(
+      (resp) => {
+        
+      }
+    )
     this.servPrestamos.getAll().subscribe(
       (resp) => {
         this.catalogoPrestamos = resp;

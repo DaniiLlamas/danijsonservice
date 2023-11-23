@@ -22,18 +22,16 @@ export class ServMisPrestamosService {
   return this.http.get<ICatalogo[]>(url);
   }
 
-  public add(prestamo:ICatalogo){
+  public add(prestamo:ICatalogo):Observable<ICatalogo>{
     let url = `${environment.apiURL}/prestamos`;
-    this.http.post(url, prestamo);
+    return this.http.post<ICatalogo>(url, prestamo);
   }
 
-  public delete(id:number){
-   let url = `${environment.apiURL}/prestamos/${id}`
-   this.http.delete(url);
-
+  public delete(id:number):Observable<ICatalogo>{
+   return this.http.delete<ICatalogo>(`${environment.apiURL}/prestamos/`+id);
   }
 
-  public buscarPorId(id:number):any{
+  public buscarPorId(id:number):Observable<ICatalogo>{
     let url = `${environment.apiURL}/catalogo/${id}`;
     return this.http.get<ICatalogo>(url);
    }
